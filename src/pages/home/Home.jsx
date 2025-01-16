@@ -14,33 +14,22 @@ const Home = () => {
   const [currentVideo, setCurrentVideo] = useState(null);
 
   const fetchVideos = () => {
-    // Verificar si los videos ya están en localStorage
-    const storedVideos = JSON.parse(localStorage.getItem('videos'));
-
-    if (storedVideos) {
-      // Si los datos ya están en localStorage, usarlos directamente
-      setVideos(storedVideos);
-      setIsLoading(false);
-    } else {
-      // Si no están en localStorage, cargar desde db.json
-      fetch('./db.json') // Aquí se asume que el archivo db.json está en la raíz del proyecto
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Error al cargar los videos');
-          }
-          return response.json();
-        })
-        .then((data) => {
-          // Guardar los videos en localStorage para futuras visitas
-          localStorage.setItem('videos', JSON.stringify(data.videos));
-          setVideos(data.videos);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(error.message);
-          setIsLoading(false);
-        });
-    }
+    setIsLoading(true);
+    fetch('http://localhost:5000/videos')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error al cargar los videos');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setVideos(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -54,26 +43,45 @@ const Home = () => {
   };
 
   const handleDelete = (videoId) => {
-    // Actualizar videos en localStorage
-    const updatedVideos = videos.filter((video) => video.id !== videoId);
-    setVideos(updatedVideos);
-    localStorage.setItem('videos', JSON.stringify(updatedVideos));
-
-    // Aquí también puedes hacer un "fetch" para eliminar en el backend si es necesario
+    fetch(`http://localhost:5000/videos/${videoId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Error al eliminar el video');
+        }
+        setVideos((prevVideos) => prevVideos.filter((video) => video.id !== videoId));
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   const handleSave = (updatedVideo) => {
     if (updatedVideo.id) {
-      const updatedVideos = videos.map((video) =>
-        video.id === updatedVideo.id ? updatedVideo : video
-      );
-      setVideos(updatedVideos);
-      localStorage.setItem('videos', JSON.stringify(updatedVideos)); // Actualizar localStorage
-
-      // Después de guardar, cerramos el popup y restablecemos el video actual
-      setShowPopup(false);
-      setCurrentVideo(null);
+      fetch(`http://localhost:5000/videos/${updatedVideo.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedVideo),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Error al actualizar el video');
+          }
+          // Actualizamos solo el video editado sin afectar el resto de los videos
+          setVideos((prevVideos) =>
+            prevVideos.map((video) =>
+              video.id === updatedVideo.id ? updatedVideo : video
+            )
+          );
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
     }
+    // Después de guardar, cerramos el popup y restablecemos el video actual
+    setShowPopup(false);
+    setCurrentVideo(null);
   };
 
   const handleClose = () => {
