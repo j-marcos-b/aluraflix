@@ -1,0 +1,147 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #262626;
+  color: #fff;
+  border-bottom: 1px solid #00c3ff;
+  box-shadow: 0 0 5px #257be5, 0 0 10px #257be5, 0 0 15px #257be5;
+  height: 125px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.navbar {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #262626;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  width: 180px;
+  height: 54px;
+  font-family: "Source Sans 3", serif;
+  transition: all 0.3s ease;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  line-height: 54px;
+  text-decoration: none;
+
+}
+
+.button:hover {
+  box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+  backdrop-filter: blur(6px);
+  border-color: #2271d1;
+  color: #2271d1;
+}
+
+.button:active {
+  box-shadow: inset 2px 4px 8px rgba(0, 0, 0, 0.4);
+  transform: scale(0.98);
+  backdrop-filter: blur(8px);
+  background-color: #333333;
+}
+
+.button:focus {
+  outline: none;
+  background-color: #040404;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  border-color: #2271d1;
+  color: #2271d1;
+}
+
+.clicked {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  background-color: #040404;
+  color: #2271d1;
+  border-color: #2271d1;
+}
+
+/* Estilo del menú de hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  z-index: 11;
+  transition: all 0.3s ease;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center; /* Asegura que la rotación sea equilibrada */
+}
+
+/* Transformación a cruz */
+.hamburger.open .bar:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px); /* Ajuste fino hacia la derecha */
+}
+
+.hamburger.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px); /* Ajuste fino hacia la derecha */
+}
+
+/* Estilos para vistas móviles */
+@media (max-width: 768px) {
+
+  .logo {
+    transform: scale(85%);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 125px; /* Altura del header */
+    right: 0;
+    background-color: #262626;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navLink {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}

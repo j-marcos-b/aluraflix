@@ -1,0 +1,22 @@
+.container {
+    background-color: #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 125px;
+    align-items: center;
+    border-top: 1px solid #00c3ff;
+    box-shadow: 0 0 5px #257be5, 0 0 10px #257be5, 0 0 15px #257be5;
+    position: relative;
+}
+
+.img {
+    width: 168px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.p {
+    color: #777777;
+    margin-top: 10px;
+}

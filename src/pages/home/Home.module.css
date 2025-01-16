@@ -1,0 +1,92 @@
+.container_principal {
+  background-color: #03090f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  background-color: #f9f9f9;
+  ;
+  width: 95%;
+}
+
+.container:last-child {
+  margin-bottom: 40px;
+}
+
+.videoCardContainerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.videoCardContainer {
+  width: 345px;
+  height: 195px;
+  margin-bottom: 60px;
+  border-radius: 15px;
+}
+
+.front,
+.back,
+.innovacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  align-self: flex-start;
+  width: 390px;
+  height: 63px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+.front {
+  background-color: #6bd1ff;
+  margin: 10px;
+}
+
+.back {
+  background-color: #00C86F;
+  margin: 10px;
+}
+
+.innovacion {
+  background-color: #FFBA05;
+  margin: 10px;
+}
+
+#front {
+  border: 1px solid #6bd1ff;
+  box-shadow: 0 0 5px #00c3ff, 0 0 10px #00c3ff, 0 0 15px #00c3ff;
+}
+
+#back {
+  border: 1px solid #6bffae;
+  box-shadow: 0 0 5px #00ff8c, 0 0 10px #00C86F, 0 0 15px #00C86F;
+}
+
+#innovacion {
+  border: 1px solid #6bffae;
+  box-shadow: 0 0 5px #ffb700, 0 0 10px #FFBA05, 0 0 15px #FFBA05;
+}
+
+@media (max-width: 768px) {
+  #primerHijo {
+    margin-top: 130px;
+  }
+
+  .front,
+  .back,
+  .innovacion {
+    display: flex;
+    justify-self: center;
+    transform: scale(80%);
+  }
+
+}

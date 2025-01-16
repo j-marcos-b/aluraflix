@@ -1,0 +1,76 @@
+{
+  "videos": [
+    {
+      "id": "a129",
+      "title": "¿Cuándo usar let, var y const?",
+      "description": "Explica cuando usar las distintas variables en JS",
+      "category": "front end",
+      "imageUrl": "image1.png",
+      "videoUrl": "https://youtu.be/PztCEdIJITY?si=tY3atROAetMqdTUA"
+    },
+    {
+      "id": "39a5",
+      "title": "¿Qué es Javascript?",
+      "description": "Explicación del lenguaje mas usado en la web",
+      "category": "front end",
+      "imageUrl": "image2.png",
+      "videoUrl": "https://youtu.be/GJfOSoaXk4s?si=Y27pjNadXlx24w7P"
+    },
+    {
+      "id": "d372",
+      "title": "Equipo Front End",
+      "category": "front end",
+      "imageUrl": "image3.png",
+      "videoUrl": "https://youtu.be/rpvrLaBQwgg?si=ziJQCsVK18I8PjDC",
+      "description": "Que hace un equipo de Front End"
+    },
+    {
+      "id": "4a55",
+      "title": "Spring Framework. ¿Qué es ?",
+      "category": "back end",
+      "imageUrl": "image4.png",
+      "videoUrl": "https://youtu.be/t-iqt1b2qqk?si=nBeb9rcQv69ebLPO",
+      "description": "El framework más usado de Java"
+    },
+    {
+      "id": "632d",
+      "title": "¿Qué es SQL y NoSQL?",
+      "description": "¿Qué es SQL y NoSQL?",
+      "category": "back end",
+      "imageUrl": "image5.png",
+      "videoUrl": "https://youtu.be/cLLKVd5CNLc?si=YNXx1hmhdhkGqtDx"
+    },
+    {
+      "id": "3767",
+      "title": "Simplificando tu código en Java",
+      "category": "back end",
+      "imageUrl": "image6.png",
+      "videoUrl": "https://youtu.be/EoPvlE85XAQ?si=JmvTDTOF6jF3BYop",
+      "description": "Conoce los enum"
+    },
+    {
+      "id": "a87c",
+      "title": "¿Qué son las Soft Skills?",
+      "category": "innovacion y gestion",
+      "imageUrl": "image7.png",
+      "videoUrl": "https://youtu.be/vhwspfvI52k?si=LfafB4-ClzDVWLZQ",
+      "description": "Por qué es tan importante desarrollarlas para posicionarse en el mercado laboral?"
+    },
+    {
+      "id": "8163",
+      "title": "7 Soft Skills más deseadas por las empresas",
+      "category": "innovacion y gestion",
+      "imageUrl": "image8.png",
+      "videoUrl": "https://youtu.be/YhR7Zp8NUzE?si=QbCsaj4M79g7dF-Z",
+      "description": " Vamos a explicarte la importancia de estas habilidades"
+    },
+    {
+      "id": "b066",
+      "title": "¿Qué son las metodologias ágiles?",
+      "category": "innovacion y gestion",
+      "imageUrl": "image9.png",
+      "videoUrl": "https://youtu.be/6N3OkLCfK-0?si=EWJGba9vPOzckirs",
+      "description": "Que són las muy conocidas hoy en día metodologias ágiles"
+    }
+  ]
+}
