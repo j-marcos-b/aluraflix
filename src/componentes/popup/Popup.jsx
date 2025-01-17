@@ -1,16 +1,28 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Popup.module.css';
 
 const Popup = ({ video, onSave, onClose }) => {
-    const [formData, setFormData] = React.useState({
-        id: video?.id || null, // Agregar el id si existe
+    const [formData, setFormData] = useState({
+        id: video?.id || null,
         title: video?.title || '',
         description: video?.description || '',
         category: video?.category || '',
-        imageUrl: video?.imageUrl || '',  // Agregar imageUrl
-        videoUrl: video?.videoUrl || '',  // Agregar videoUrl
+        imageUrl: video?.imageUrl || '',
+        videoUrl: video?.videoUrl || '',
     });
+
+    useEffect(() => {
+        // Actualiza el formulario cuando cambia la prop video
+        setFormData({
+            id: video?.id || null,
+            title: video?.title || '',
+            description: video?.description || '',
+            category: video?.category || '',
+            imageUrl: video?.imageUrl || '',
+            videoUrl: video?.videoUrl || '',
+        });
+    }, [video]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,7 +31,7 @@ const Popup = ({ video, onSave, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSave(formData);
+        onSave(formData); // Llama a la función onSave del componente padre, pasando los datos actualizados
     };
 
     return (
@@ -29,7 +41,8 @@ const Popup = ({ video, onSave, onClose }) => {
                 <form className={styles.contenedor_items} onSubmit={handleSubmit}>
                     <label className={styles.label}>
                         Título:
-                        <input className={styles.input}
+                        <input
+                            className={styles.input}
                             type="text"
                             name="title"
                             value={formData.title}
@@ -39,7 +52,8 @@ const Popup = ({ video, onSave, onClose }) => {
                     </label>
                     <label className={styles.label}>
                         Categoría:
-                        <select className={styles.select}
+                        <select
+                            className={styles.select}
                             name="category"
                             value={formData.category}
                             onChange={handleChange}
@@ -52,7 +66,8 @@ const Popup = ({ video, onSave, onClose }) => {
                     </label>
                     <label className={styles.label}>
                         Imagen URL:
-                        <input className={styles.input}
+                        <input
+                            className={styles.input}
                             type="text"
                             name="imageUrl"
                             value={formData.imageUrl}
@@ -62,7 +77,8 @@ const Popup = ({ video, onSave, onClose }) => {
                     </label>
                     <label className={styles.label}>
                         Video URL:
-                        <input className={styles.input}
+                        <input
+                            className={styles.input}
                             type="text"
                             name="videoUrl"
                             value={formData.videoUrl}
@@ -72,7 +88,8 @@ const Popup = ({ video, onSave, onClose }) => {
                     </label>
                     <label className={styles.label}>
                         Descripción:
-                        <textarea className={styles.textarea}
+                        <textarea
+                            className={styles.textarea}
                             name="description"
                             value={formData.description}
                             onChange={handleChange}
@@ -91,21 +108,19 @@ const Popup = ({ video, onSave, onClose }) => {
     );
 };
 
-// Definir propTypes
 Popup.propTypes = {
     video: PropTypes.shape({
-        id: PropTypes.string,  // Cambiar tipo a string, ya que el id es un string
+        id: PropTypes.string,
         title: PropTypes.string,
         description: PropTypes.string,
         category: PropTypes.string,
-        imageUrl: PropTypes.string,  // Agregar validación para imageUrl
-        videoUrl: PropTypes.string,  // Agregar validación para videoUrl
+        imageUrl: PropTypes.string,
+        videoUrl: PropTypes.string,
     }),
     onSave: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
 };
 
-// Valores por defecto para las props
 Popup.defaultProps = {
     video: null,
 };

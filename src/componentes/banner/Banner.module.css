@@ -16,21 +16,18 @@
     border-radius: 8px;
   }
 
-  .frontend {
-    background-color: #6BD1FF;
-    width: 250px;
+  .categoria {
     height: 70px;
     color: #fff;
     border-radius: 10px;
     margin-bottom: 20px;
-    font-size: 2.3em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 2em;
+    display: inline-block;
     font-weight: bold;
+    padding: 12px;
   }
 
-  h1 {
+  .title {
     font-size: 3em;
     font-weight: 400;
     margin-bottom: 20px;
@@ -44,20 +41,31 @@
     margin-left: 30px;
   }
   
-  .iframe {
+  .image {
     margin: 0 30px 0 20px;
+    border-radius: 15px;
   }
 
   @media (min-width: 768px) and (max-width: 990px) {
 
-    .frontend {
-      margin-top: 50px;
+    .text {
+      transform: scale(90%);
     }
 
-    img {
-      transform: scale(85%);
-      margin-right: 0 !important;
+    .title {
+      font-size: 2em;
     }
+
+    .image {
+      transform: scale(85%);
+      margin-right: 0;
+    }
+
+    .categoria {
+      font-size: 1.3em;
+      height: 50px;
+    }
+
   }
 
   @media (max-width: 768px) {

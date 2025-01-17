@@ -1,26 +1,72 @@
+import { useEffect, useState } from 'react';
 import styles from './Banner.module.css';
 
 const Banner = () => {
-  return (
-    <div className={styles.banner}>
-      <div className={styles.text}>
-        <div className={styles.frontend}>FRONT END</div>
-        <h1>Descubre y comparte los mejores videos</h1>
-        <p>Explora nuestras diversas categorías, descubre contenido que se ajusta a tus intereses y añade fácilmente tus videos favoritos para tenerlos siempre a la mano. Personaliza tu experiencia y mantén todos tus videos organizados y listos para ver en cualquier momento.</p>
-      </div>
-      {/* Iframe de YouTube */}
-      <iframe
-        className={styles.iframe}
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/ov7vA5HFe6w"
-        title="YouTube video player"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </div>
-  );
+    const [randomCard, setRandomCard] = useState(null);
+
+    const getBorderColor = (category) => {
+        switch (category) {
+            case 'front end':
+                return '#00c3ff';
+            case 'back end':
+                return '#00ff8c';
+            case 'innovacion y gestion':
+                return '#ffb700';
+            default:
+                return '#ccc';
+        }
+    };
+
+    useEffect(() => {
+        const fetchRandomCard = () => {
+            const storedVideos = localStorage.getItem('videos');
+            if (storedVideos) {
+                const videos = JSON.parse(storedVideos);
+                if (videos && videos.length > 0) { //Verificar que videos exista y tenga datos
+                    const randomIndex = Math.floor(Math.random() * videos.length);
+                    setRandomCard(videos[randomIndex]);
+                }
+            }
+        };
+
+        fetchRandomCard();
+        // Escucha los cambios en localStorage para actualizar el banner
+        window.addEventListener('storage', fetchRandomCard);
+
+        return () => {
+            window.removeEventListener('storage', fetchRandomCard);
+        }
+    }, []);
+
+    const borderColor = randomCard ? getBorderColor(randomCard.category) : '#ccc';
+
+    return (
+        <div className={styles.banner}>
+            <div className={styles.text}>
+                <div className={styles.categoria} style={{ backgroundColor: borderColor }}>
+                    {randomCard ? randomCard.category.toUpperCase() : 'CARGANDO CATEGORÍA...'}
+                </div>
+                <h1 className={styles.title}>
+                    {randomCard ? randomCard.title : 'CARGANDO TÍTULO...'}
+                </h1>
+                <p>
+                    {randomCard ? randomCard.description : 'CARGANDO DESCRIPCIÓN...'}
+                </p>
+            </div>
+            {randomCard ? (
+                <a href={randomCard.videoUrl} target="_blank" rel="noopener noreferrer">
+                    <img
+                        className={styles.image}
+                        src={randomCard.imageUrl}
+                        alt={randomCard.title}
+                        style={{ borderColor }}
+                    />
+                </a>
+            ) : (
+                <p>CARGANDO IMAGEN...</p>
+            )}
+        </div>
+    );
 };
 
 export default Banner;
