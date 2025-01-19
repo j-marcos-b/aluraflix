@@ -186,15 +186,15 @@
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,
 .input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #000 inset !important; /* Reemplaza #000 con el color de fondo negro */
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.4) !important; /* Color del texto */
-    caret-color: rgba(255, 255, 255, 0.4) !important; /* Color del cursor */
-    border: 2px solid rgba(255, 255, 255, 0.2) !important; /* Mantener el borde */
+    -webkit-box-shadow: 0 0 0 30px #000 inset !important; 
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.4) !important; 
+    caret-color: rgba(255, 255, 255, 0.4) !important; 
+    border: 2px solid rgba(255, 255, 255, 0.2) !important; 
 }
 
 /* Para Firefox */
 .input:-moz-autofill {
-    background-color: #000 !important; /* Reemplaza #000 con el color de fondo negro */
-    color: rgba(255, 255, 255, 0.4) !important; /* Color del texto */
-    border: 2px solid rgba(255, 255, 255, 0.2) !important; /* Mantener el borde */
+    background-color: #000 !important; 
+    color: rgba(255, 255, 255, 0.4) !important; 
+    border: 2px solid rgba(255, 255, 255, 0.2) !important; 
 }

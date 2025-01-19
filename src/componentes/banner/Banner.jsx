@@ -22,7 +22,7 @@ const Banner = () => {
             const storedVideos = localStorage.getItem('videos');
             if (storedVideos) {
                 const videos = JSON.parse(storedVideos);
-                if (videos && videos.length > 0) { //Verificar que videos exista y tenga datos
+                if (videos && videos.length > 0) {
                     const randomIndex = Math.floor(Math.random() * videos.length);
                     setRandomCard(videos[randomIndex]);
                 }
@@ -30,7 +30,6 @@ const Banner = () => {
         };
 
         fetchRandomCard();
-        // Escucha los cambios en localStorage para actualizar el banner
         window.addEventListener('storage', fetchRandomCard);
 
         return () => {

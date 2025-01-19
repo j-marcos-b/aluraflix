@@ -88,7 +88,6 @@
     font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
-    ;
     height: 45px;
     font-family: "Source Sans 3", serif;
     transition: all 0.3s ease;
@@ -97,9 +96,7 @@
     line-height: 54px;
     text-decoration: none;
     width: 45%;
-    /* El tamaño de los botones se ajusta al 45% del ancho */
     max-width: 140px;
-    /* Limita el tamaño máximo de los botones */
 }
 
 .button:hover {

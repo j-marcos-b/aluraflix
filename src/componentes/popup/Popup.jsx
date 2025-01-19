@@ -13,7 +13,6 @@ const Popup = ({ video, onSave, onClose }) => {
     });
 
     useEffect(() => {
-        // Actualiza el formulario cuando cambia la prop video
         setFormData({
             id: video?.id || null,
             title: video?.title || '',
@@ -31,7 +30,7 @@ const Popup = ({ video, onSave, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSave(formData); // Llama a la función onSave del componente padre, pasando los datos actualizados
+        onSave(formData); 
     };
 
     return (

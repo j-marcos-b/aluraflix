@@ -54,13 +54,13 @@ const NewVideo = ({ onVideoAdded }) => {
     };
 
     return (
-        <div className={styles.container}> {/* Asume que styles está definido */}
-            <h2 className={styles.titulo}>NUEVO VIDEO</h2> {/* Asume que styles está definido */}
-            <p className={styles.texto}>Complete el formulario para crear una nueva tarjeta de video</p> {/* Asume que styles está definido */}
-            {error && <div className={styles['error-message']}>{error}</div>} {/* Asume que styles está definido */}
-            <div className={styles.container_form}> {/* Asume que styles está definido */}
-                <form className={styles.form} onSubmit={(e) => e.preventDefault()}> {/* Asume que styles está definido */}
-                    <div className={styles.group}> {/* Asume que styles está definido */}
+        <div className={styles.container}> 
+            <h2 className={styles.titulo}>NUEVO VIDEO</h2> 
+            <p className={styles.texto}>Complete el formulario para crear una nueva tarjeta de video</p>
+            {error && <div className={styles['error-message']}>{error}</div>} 
+            <div className={styles.container_form}> 
+                <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+                    <div className={styles.group}>
                         <label htmlFor="title">TÍTULO:</label>
                         <input
                             className={styles.input}
@@ -73,7 +73,7 @@ const NewVideo = ({ onVideoAdded }) => {
                         />
                     </div>
 
-                    <div className={styles.group}> {/* Asume que styles está definido */}
+                    <div className={styles.group}> 
                         <label htmlFor="category">CATEGORÍA:</label>
                         <select
                             className={styles.input} 
@@ -89,7 +89,7 @@ const NewVideo = ({ onVideoAdded }) => {
                         </select>
                     </div>
 
-                    <div className={styles.group}> {/* Asume que styles está definido */}
+                    <div className={styles.group}> 
                         <label htmlFor="imageUrl">IMAGEN (URL):</label>
                         <input
                             placeholder={error && !imageUrl ? 'Este campo es obligatorio' : 'Ingrese la URL de la imagen'}
@@ -102,7 +102,7 @@ const NewVideo = ({ onVideoAdded }) => {
                         />
                     </div>
 
-                    <div className={styles.group}> {/* Asume que styles está definido */}
+                    <div className={styles.group}> 
                         <label htmlFor="videoUrl">VIDEO (URL):</label>
                         <input
                             placeholder={error && !videoUrl ? 'Este campo es obligatorio' : 'Ingrese la URL del video'}
@@ -115,7 +115,7 @@ const NewVideo = ({ onVideoAdded }) => {
                         />
                     </div>
 
-                    <div className={styles.group}> {/* Asume que styles está definido */}
+                    <div className={styles.group}> 
                         <label htmlFor="description">DESCRIPCIÓN:</label>
                         <textarea
                             placeholder={error && !description ? 'Este campo es obligatorio' : '¿De qué trata este video?'}
@@ -127,11 +127,11 @@ const NewVideo = ({ onVideoAdded }) => {
                         />
                     </div>
                 </form>
-                <div className={styles.botones}> {/* Asume que styles está definido */}
-                    <button className={styles.button} type="button" onClick={handleSave}> {/* Asume que styles está definido */}
+                <div className={styles.botones}> 
+                    <button className={styles.button} type="button" onClick={handleSave}> 
                         GUARDAR
                     </button>
-                    <button className={styles.button} type="button" onClick={handleClear}> {/* Asume que styles está definido */}
+                    <button className={styles.button} type="button" onClick={handleClear}> 
                         LIMPIAR
                     </button>
                 </div>

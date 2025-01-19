@@ -5,9 +5,7 @@ import styles from "./VideoCard.module.css";
 const VideoCard = ({ video, onEdit, onDelete }) => {
   return (
     <div className={styles.card}>
-      {/* Enlace que redirige a YouTube */}
       <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
-        {/* Imagen del video */}
         <img
           src={video.imageUrl}
           alt={video.title}
@@ -15,7 +13,6 @@ const VideoCard = ({ video, onEdit, onDelete }) => {
         />
       </a>
 
-      {/* Pie de tarjeta con botones de editar y eliminar */}
       <div className={styles.cardFooter}>
         <button className={styles.button} onClick={() => onEdit(video)}>
           <FaEdit /> Editar
@@ -28,7 +25,6 @@ const VideoCard = ({ video, onEdit, onDelete }) => {
   );
 };
 
-// Validación de PropTypes
 VideoCard.propTypes = {
   video: PropTypes.shape({
     id: PropTypes.string.isRequired,

@@ -78,7 +78,6 @@
   border-color: #2271d1;
 }
 
-/* Estilo del menú de hamburguesa */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -94,12 +93,11 @@
   background-color: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
-  transform-origin: center; /* Asegura que la rotación sea equilibrada */
+  transform-origin: center; 
 }
 
-/* Transformación a cruz */
 .hamburger.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(7px, 7px); /* Ajuste fino hacia la derecha */
+  transform: rotate(45deg) translate(7px, 7px); 
 }
 
 .hamburger.open .bar:nth-child(2) {
@@ -107,10 +105,9 @@
 }
 
 .hamburger.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px); /* Ajuste fino hacia la derecha */
+  transform: rotate(-45deg) translate(7px, -7px); 
 }
 
-/* Estilos para vistas móviles */
 @media (max-width: 768px) {
 
   .logo {
@@ -127,7 +124,7 @@
     align-items: center;
     gap: 1rem;
     position: absolute;
-    top: 125px; /* Altura del header */
+    top: 125px; 
     right: 0;
     background-color: #262626;
     width: 100%;
